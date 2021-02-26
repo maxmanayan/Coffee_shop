@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require "faker"
+
+Shop.destroy_all
+
+10.times do 
+  shop = Shop.create(
+    name: Faker::Coffee.variety,
+    location: Faker::Address.full_address,
+  )
+
+  5.times do
+    shop.coffees.create(
+      blend: Faker::Coffee.blend_name,
+      origin: Faker::Coffee.origin,
+      description: Faker::Coffee.notes,
+    )
+  end
+end
+
+
+puts "Seeded #{Shop.all.size} new shops"
+puts "Seeded #{Coffee.all.size} new coffees"
