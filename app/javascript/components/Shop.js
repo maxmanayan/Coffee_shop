@@ -19,6 +19,7 @@ const Shop = (props) => {
   return(
     <div>
       <h1>Coffee Shop Page</h1>
+      <a href="/">Return to List</a>
       <div>
         {renderShop()}
       </div>
