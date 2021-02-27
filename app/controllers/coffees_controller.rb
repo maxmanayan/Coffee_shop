@@ -31,12 +31,18 @@ class CoffeesController < ApplicationController
 
 
   def update 
+    @coffee = @shop.coffees.find(params[:id])
+    @coffee.update(check_params)
 
+    redirect_to shop_path(@shop)
   end
 
 
   def destroy 
+    @coffee = @shop.coffees.find(params[:id])
+    @coffee.destroy
 
+    redirect_to shop_path(@shop)
   end
 
 
@@ -54,6 +60,6 @@ class CoffeesController < ApplicationController
 
 
   def check_params
-    params.require(:coffee).permit(:blend, :origin, :decoration)
+    params.require(:coffee).permit(:blend, :origin, :description)
   end
 end

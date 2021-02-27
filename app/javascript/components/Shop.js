@@ -12,6 +12,7 @@ const Shop = (props) => {
           <p>notes: {coffee.description}</p>
           <a href={`/shops/${shop.id}/coffees/${coffee.id}`}>View Blend</a>
           <a href={`/shops/${shop.id}/coffees/${coffee.id}/edit`}>Edit Blend</a>
+          <a href={`/shops/${shop.id}/coffees/${coffee.id}`} data-method="delete">Delete Blend</a>
         </div>
       )
     })
