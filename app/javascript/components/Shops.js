@@ -11,6 +11,7 @@ const Shops = (props) => {
           <p>{shop.location}</p>
           <a href={`/shops/${shop.id}`}>Visit Shop</a>
           <a href={`/shops/${shop.id}/edit`}>Edit Shop</a>
+          <a href={`/shops/${shop.id}`} data-method="delete">Delete Shop</a>
         </div>
       )
     })
