@@ -10,7 +10,8 @@ const Shop = (props) => {
           <h2>{coffee.blend}</h2>
           <p>origin: {coffee.origin}</p>
           <p>notes: {coffee.description}</p>
-          <a href={`/shops/${shop.id}/coffees/${coffee.id}`}>View Coffee</a>
+          <a href={`/shops/${shop.id}/coffees/${coffee.id}`}>View Blend</a>
+          <a href={`/shops/${shop.id}/coffees/${coffee.id}/edit`}>Edit Blend</a>
         </div>
       )
     })
@@ -19,6 +20,7 @@ const Shop = (props) => {
   return(
     <div>
       <h1>Coffee Shop Page</h1>
+      <a href={`/shops/${shop.id}/coffees/new`}>Add New Blend</a>
       <a href="/">Return to List</a>
       <div>
         {renderShop()}

@@ -13,6 +13,7 @@ class CoffeesController < ApplicationController
 
   def new
 
+    render component: "CoffeeForm"
   end
 
 
@@ -22,7 +23,7 @@ class CoffeesController < ApplicationController
 
 
   def edit
-
+    render component: "CoffeeForm"
   end
 
 
