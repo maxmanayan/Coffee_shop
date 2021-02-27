@@ -17,7 +17,9 @@ class ShopsController < ApplicationController
   end
 
   def create
+    @shop = Shop.create(check_params)
 
+    redirect_to root_path
   end
 
 
@@ -35,5 +37,11 @@ class ShopsController < ApplicationController
 
   end
 
+
+  private
+
+  def check_params
+    params.require(:shop).permit(:name, :location)
+  end
 
 end
