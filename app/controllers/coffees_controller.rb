@@ -12,18 +12,21 @@ class CoffeesController < ApplicationController
 
 
   def new
-
-    render component: "CoffeeForm"
+    @coffee = Coffee.new
+    render component: "CoffeeForm", props: {shop: @shop, coffee: @coffee}
   end
 
 
   def create
+    @coffee = @shop.coffees.create(check_params)
 
+    redirect_to shop_path(@shop)
   end
 
 
   def edit
-    render component: "CoffeeForm"
+    @coffee = @shop.coffees.find(params[:id])
+    render component: "CoffeeForm", props: {shop: @shop, coffee: @coffee}
   end
 
 
@@ -51,6 +54,6 @@ class CoffeesController < ApplicationController
 
 
   def check_params
-
+    params.require(:coffee).permit(:blend, :origin, :decoration)
   end
 end
