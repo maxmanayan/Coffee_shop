@@ -9,9 +9,10 @@ const ShopForm = (props) => {
 
 
   return(
-    <div>
-      <h1>{shop.id ? "Edit Shop" : "New Shop"}</h1>
-      <div>
+    <div className="body">
+      <h1 className="shop-header">The Roast ☕</h1>
+      <h1 className="sub-header">{shop.id ? "Edit Shop" : "New Shop"}</h1>
+      <div className="form">
         <form action={actionPath} method="post">
         {shop.id && <input type="hidden" name="_method" value="patch" />}
           <p>Name</p>
@@ -20,7 +21,7 @@ const ShopForm = (props) => {
           <p>Address</p>
           <input defaultValue={defaultAddress} name="shop[location]"/>
 
-
+          <hr />
           <button type="input">{shop.id ? "Update" : "Create"}</button>
           <a href="/">Cancel</a>
         </form>

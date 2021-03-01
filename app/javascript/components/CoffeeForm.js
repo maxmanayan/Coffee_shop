@@ -10,9 +10,10 @@ const CoffeeForm = (props) => {
 
 
   return(
-    <div>
-      <h1>{coffee.id ? "Edit Blend" : "Add New Blend"}</h1>
-      <div>
+    <div className="body">
+      <h1 className="shop-header">The Roast ☕</h1>
+      <h1 className="sub-header">{shop.name} - {coffee.id ? "Edit Blend" : "Add New Blend"}</h1>
+      <div className="form">
         <form action={actionPath} method="post">
         {coffee.id && <input type="hidden" name="_method" value="patch"/>}
           <p>Blend</p>
@@ -24,6 +25,7 @@ const CoffeeForm = (props) => {
           <p>Notes</p>
           <input defaultValue={defaultNotes} name="coffee[description]" />
 
+          <hr />
           <button>{coffee.id ? "Update" : "Create"}</button>
           <a href={`/shops/${shop.id}`}>Cancel</a>
         </form>
